@@ -27,12 +27,9 @@ export const Container = styled.div`
             }
 
             &.deposit {
-                color: var(--green);
+                color: var(-green);
             }
-
-            &.withdraw {
-                color: var(--red);
-            }
+            
 
         }
     }

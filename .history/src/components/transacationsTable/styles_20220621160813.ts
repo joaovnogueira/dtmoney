@@ -27,13 +27,8 @@ export const Container = styled.div`
             }
 
             &.deposit {
-                color: var(--green);
+                cpçpr: var(-green)
             }
-
-            &.withdraw {
-                color: var(--red);
-            }
-
         }
     }
 `;
