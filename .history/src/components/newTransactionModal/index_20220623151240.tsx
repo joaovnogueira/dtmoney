@@ -6,7 +6,6 @@ import closeImg from '../../assets/close.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import incomeImg from '../../assets/income.svg'
 import { FormEvent, useState } from "react";
-import { api } from "../../services/api";
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -22,16 +21,6 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
 
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault();
-
-        const data = {
-            title, 
-            category, 
-            value, 
-            type
-        }
-
-        api.post('/transactions', data)
-    
     }
 
     return(
@@ -51,7 +40,6 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                     placeholder="Título" 
                     value={title}
                     onChange={event => setTitle(event.target.value)}
-                    //event.target.value consegue pegar o valor digitado no input
                 />
                 <input 
                     type="number" 
@@ -84,7 +72,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                 <input 
                     placeholder="Categoria" 
                     value={category}
-                    onChange={event => setCategory(event.target.value)}
+                    onChange={event => setCategory(event.target.category)}
                 />
                 <button type="submit">Cadastrar</button>
             </Container>

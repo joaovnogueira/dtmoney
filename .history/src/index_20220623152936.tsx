@@ -12,7 +12,7 @@ createServer({
   routes() {
     this.namespace ='api';
     this.get('/transactions', () => {
-      return this.schema.all('transactions')
+      return 
     })
 
     this.post('/transactions', (schema, request) => {

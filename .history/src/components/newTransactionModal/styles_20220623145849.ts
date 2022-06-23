@@ -1,17 +1,13 @@
 import styled from 'styled-components'
 import { darken, transparentize } from 'polished'
 
-/* 
-10
+/* 10
 6
 1
 4
 5
 9 
-3 
-11
-2
-*/
+3 */
 
 export const Container = styled.form`
     h2 {

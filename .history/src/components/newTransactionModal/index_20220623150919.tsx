@@ -6,7 +6,6 @@ import closeImg from '../../assets/close.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import incomeImg from '../../assets/income.svg'
 import { FormEvent, useState } from "react";
-import { api } from "../../services/api";
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -22,16 +21,6 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
 
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault();
-
-        const data = {
-            title, 
-            category, 
-            value, 
-            type
-        }
-
-        api.post('/transactions', data)
-    
     }
 
     return(
@@ -49,15 +38,12 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
 
                 <input 
                     placeholder="Título" 
-                    value={title}
-                    onChange={event => setTitle(event.target.value)}
-                    //event.target.value consegue pegar o valor digitado no input
-                />
+                    value={title}/>
                 <input 
                     type="number" 
                     placeholder="Valor" 
                     value={value} 
-                    onChange={event => setValue(Number(event.target.value))}
+                    onChange={event => setValue(event.target.value)}
                 />
                 <TransactionTypeContainer>
                     <RadioBox 
@@ -81,11 +67,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                         <span>Saída</span>
                     </RadioBox>
                 </TransactionTypeContainer>
-                <input 
-                    placeholder="Categoria" 
-                    value={category}
-                    onChange={event => setCategory(event.target.value)}
-                />
+                <input placeholder="Categoria" value={category}/>
                 <button type="submit">Cadastrar</button>
             </Container>
         </Modal>

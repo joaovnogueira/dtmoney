@@ -10,7 +10,6 @@ import { darken, transparentize } from 'polished'
 9 
 3 
 11
-2
 */
 
 export const Container = styled.form`
