@@ -23,14 +23,14 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault();
 
-        const data = {
+        console.log( {
             title, 
             category, 
             value, 
             type
-        };
+        });
 
-        api.post('/transactions', data)
+        //api.post('/transactions', data)
     
     }
 

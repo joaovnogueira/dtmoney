@@ -1,20 +1,6 @@
 import styled from 'styled-components'
 import { darken, transparentize } from 'polished'
 
-/* 
-10
-6
-1
-4
-5
-9 
-3 
-11
-2
-8
-
-*/
-
 export const Container = styled.form`
     h2 {
         color: var(--text-title);

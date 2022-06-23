@@ -38,15 +38,10 @@ export function TransactionsTable(){
                                 {new Intl.NumberFormat('pt-BR', {
                                     style: 'currency',
                                     currency: 'BRL'
-                                }).format(transaction.amount)}
+                                }.format(transaction.amount)
                             </td>
                             <td>{transaction.category}</td>
-                            <td>
-                                {new Intl.DateTimeFormat('pt-BR').
-                                format(
-                                    new Date(transaction.createdAt)
-                                )}
-                            </td>
+                            <td>{transaction.createdAt}</td>
                         </tr>
                     ))}
                 </tbody>

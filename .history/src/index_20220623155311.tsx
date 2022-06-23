@@ -18,7 +18,7 @@ createServer({
           type: 'deposit',
           category: 'Dev',
           amount: 6000,
-          createdAt: new Date('2021-02-12 09:00:00'),
+          createdAt: new Date ('2021-02-12 09:00:00'),
         },
 
         {
@@ -27,7 +27,7 @@ createServer({
           type: 'withdraw',
           category: 'Casa',
           amount: 1100,
-          createdAt: new Date('2021-02-14 11:00:00'),
+          createdAt: new Date ('2021-02-14 11:00:00'),
         }
       ]
     })
@@ -36,7 +36,7 @@ createServer({
   routes() {
     this.namespace ='api';
     this.get('/transactions', () => {
-      return this.schema.all('transaction')
+      return this.schema.all('transactions')
     })
 
     this.post('/transactions', (schema, request) => {
