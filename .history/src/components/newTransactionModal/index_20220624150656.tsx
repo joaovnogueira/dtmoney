@@ -21,7 +21,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
     const [value, setValue] = useState(0)
     const [category, setCategory] = useState('')
 
-    const transactions = useContext(TransactionsContext);
+    //const transactions = useContext(TransactionsContext);
 
 
     function handleCreateNewTransaction(event: FormEvent) {

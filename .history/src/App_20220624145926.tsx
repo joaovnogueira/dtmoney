@@ -22,7 +22,7 @@ export function App() {
   }
 
   return (
-      <TransactionsContext.Provider value={[]}>
+      <TransactionsContext.Provider>
         <GlobalStyle/>
         <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
         <NewTransactionModal 
@@ -30,7 +30,7 @@ export function App() {
             isOpen={isNewTransactionModalOpen}
         />
         <Dashboard/>
-      </TransactionsContext.Provider>
+      <TransactionsContext.Provider>
     
   );
 }

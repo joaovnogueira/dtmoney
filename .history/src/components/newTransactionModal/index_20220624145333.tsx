@@ -7,7 +7,7 @@ import closeImg from '../../assets/close.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import incomeImg from '../../assets/income.svg'
 import { api } from "../../services/api";
-import { TransactionsContext } from '../../TransactionsContext'
+//import { TransactionsContext } from '../../TransactionsContext'
 
 
 interface NewTransactionModalProps {
@@ -21,7 +21,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
     const [value, setValue] = useState(0)
     const [category, setCategory] = useState('')
 
-    const transactions = useContext(TransactionsContext);
+    //const transactions = useContext(TransactionsContext);
 
 
     function handleCreateNewTransaction(event: FormEvent) {
