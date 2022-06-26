@@ -61,7 +61,7 @@ export function Summary(){
                     {new Intl.NumberFormat('pt-BR', {
                             style: 'currency',
                             currency: 'BRL'
-                    }).format(summary.total)}
+                    }).format(summary.toal)}
                 </strong>
             </div>
         </Container>

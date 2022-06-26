@@ -37,6 +37,7 @@ export function Summary(){
                             style: 'currency',
                             currency: 'BRL'
                     }).format(summary.deposits)}
+                    {summary.deposits}
                 </strong>
             </div>
             <div>
@@ -44,25 +45,14 @@ export function Summary(){
                     <p>Saídas</p>
                     <img src={outcomeImg} alt="Saídas" />
                 </header>
-                <strong>
-                    -
-                    {new Intl.NumberFormat('pt-BR', {
-                            style: 'currency',
-                            currency: 'BRL'
-                    }).format(summary.withdraws)}
-                </strong>
+                <strong>R$ -{summary.withdraws}</strong>
             </div>
             <div className="highlight-background">
                 <header>
                     <p>Total</p>
                     <img src={totalImg} alt="Total" />
                 </header>
-                <strong>
-                    {new Intl.NumberFormat('pt-BR', {
-                            style: 'currency',
-                            currency: 'BRL'
-                    }).format(summary.total)}
-                </strong>
+                <strong>R$ {summary.total}</strong>
             </div>
         </Container>
     );

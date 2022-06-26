@@ -1,4 +1,4 @@
-import { Container, TransactionTypeContainer, RadioBox } from "./styles";
+import { Container, TransactionTypeContainer, RadioBox } from ".styles/styles";
 
 import Modal from 'react-modal';
 import { FormEvent, useState, useContext } from "react";

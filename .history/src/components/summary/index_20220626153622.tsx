@@ -58,10 +58,10 @@ export function Summary(){
                     <img src={totalImg} alt="Total" />
                 </header>
                 <strong>
-                    {new Intl.NumberFormat('pt-BR', {
+                {new Intl.NumberFormat('pt-BR', {
                             style: 'currency',
                             currency: 'BRL'
-                    }).format(summary.total)}
+                    }).format(summary.withdraws)}
                 </strong>
             </div>
         </Container>

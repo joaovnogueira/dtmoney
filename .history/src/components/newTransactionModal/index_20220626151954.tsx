@@ -6,7 +6,7 @@ import { FormEvent, useState, useContext } from "react";
 import closeImg from '../../assets/close.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import incomeImg from '../../assets/income.svg'
-import { TransactionsContext, useTransactions } from '../../hooks/useTransactionsContext'
+import { TransactionsContext } from '../../hooks/useTransactionsContext'
 
 
 interface NewTransactionModalProps {
