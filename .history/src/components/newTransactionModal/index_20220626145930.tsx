@@ -6,6 +6,7 @@ import { FormEvent, useState, useContext } from "react";
 import closeImg from '../../assets/close.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import incomeImg from '../../assets/income.svg'
+import { api } from "../../services/api";
 import { TransactionsContext } from '../../TransactionsContext'
 
 
@@ -37,12 +38,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
             type
         })
 
-        setTitle('');
-        setAmount(0);
-        setCategory('');
-        setType('deposit');
-        onRequestClose();
-    }
+        setTitle('');    }
 
     return(
         <Modal 

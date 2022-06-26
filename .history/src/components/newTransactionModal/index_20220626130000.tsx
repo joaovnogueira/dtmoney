@@ -6,6 +6,7 @@ import { FormEvent, useState, useContext } from "react";
 import closeImg from '../../assets/close.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import incomeImg from '../../assets/income.svg'
+import { api } from "../../services/api";
 import { TransactionsContext } from '../../TransactionsContext'
 
 
@@ -17,31 +18,24 @@ interface NewTransactionModalProps {
 export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModalProps){
     const [type, setType] = useState('deposit');
     const [title, setTitle] = useState('')
-    const [amount, setAmount] = useState(0)
+    const [value, setValue] = useState(0)
     const [category, setCategory] = useState('')
 
-    const { createTransaction } = useContext(TransactionsContext);
+    const transactions = useContext(TransactionsContext);
 
 
-    async function handleCreateNewTransaction(event: FormEvent) {
-        event.preventDefault(); 
-        /* serve para prevenir um ação padrão 
-        de formulários HTML, que é o reload da página assim que 
-        enviar o formulário, esse event não deixa isso acontecer 
-        deixando mais performatica a aplicação*/
+    function handleCreateNewTransaction(event: FormEvent) {
+        event.preventDefault(); // serve para prevenir um ação padrão de formulários HTML, que é o reload da página assim que enviar o formulário, esse event 
 
-        await createTransaction({
-            title,
-            amount,
-            category,
+        const data = {
+            title, 
+            category, 
+            value, 
             type
-        })
+        };
 
-        setTitle('');
-        setAmount(0);
-        setCategory('');
-        setType('deposit');
-        onRequestClose();
+        api.post('/transactions', data)
+    
     }
 
     return(
@@ -66,8 +60,8 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                 <input 
                     type="number" 
                     placeholder="Valor" 
-                    value={amount} 
-                    onChange={event => setAmount(Number(event.target.value))}
+                    value={value} 
+                    onChange={event => setValue(Number(event.target.value))}
                 />
                 <TransactionTypeContainer>
                     <RadioBox 

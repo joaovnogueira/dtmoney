@@ -6,6 +6,7 @@ import { FormEvent, useState, useContext } from "react";
 import closeImg from '../../assets/close.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import incomeImg from '../../assets/income.svg'
+import { api } from "../../services/api";
 import { TransactionsContext } from '../../TransactionsContext'
 
 
@@ -23,25 +24,19 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
     const { createTransaction } = useContext(TransactionsContext);
 
 
-    async function handleCreateNewTransaction(event: FormEvent) {
+    function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault(); 
         /* serve para prevenir um ação padrão 
         de formulários HTML, que é o reload da página assim que 
         enviar o formulário, esse event não deixa isso acontecer 
         deixando mais performatica a aplicação*/
 
-        await createTransaction({
+        createTransaction({
             title,
-            amount,
+            amount: value,
             category,
             type
         })
-
-        setTitle('');
-        setAmount(0);
-        setCategory('');
-        setType('deposit');
-        onRequestClose();
     }
 
     return(

@@ -19,7 +19,7 @@ type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>;
 
 /* isso é a mesma coisa que isso: */
 
-/*
+/* 
 type TransactionInput = {
     title: string;
     amount: number;
@@ -27,16 +27,14 @@ type TransactionInput = {
     category: string;
 }
 */
+
 //type TransactionInput = Pick<TransactionInput, 'title' | 'amount' | 'type' | 'category'>;
 
 interface TransactionsContextData {
-    transactions: Transaction[]
-    createTransaction: (transaction: TransactionInput) => Promise<void>
+    transactions> Transaction[];
 }
 
-export const TransactionsContext = createContext<TransactionsContextData>(
-    {} as TransactionsContextData
-);
+export const TransactionsContext = createContext<Transaction[]>([]);
  
 export function TransactionsProvider({children}: TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([])
@@ -46,17 +44,9 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
             .then(response => setTransactions(response.data.transactions))
     }, []);
 
-    async function createTransaction(transactionInput: TransactionInput){
-        const response = await api.post('/transactions', {
-            ...transactionInput,
-            createdAt: new Date()
-        })
-        const { transaction } = response.data;
-
-        setTransactions([
-            ...transactions,
-            transaction,
-        ])
+    function createTransaction(transaction: Transaction){
+            api.post('/transactions', transaction)
+    
     }
 
     return(
